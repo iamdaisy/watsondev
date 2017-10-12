@@ -1,0 +1,30 @@
+Inversion of Control -> Dependency Injection(의존관계주입, 의존성주입)
+
+@Component  : spring bean
+
+@Controller	: user controller
+@Service	: service layer
+@Repository	: db, file등 영속적 layer
+
+@RestController 	<- rest service를 지원 ver 4에 추가
+
+Text2SpeechServiceImpl text2SpeechServiceImpl = new Text2SpeechServiceImpl();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
