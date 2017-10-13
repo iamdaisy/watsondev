@@ -6,6 +6,8 @@ public interface Text2SpeechDAO {
 
 	void insertText2Speech(Text2SpeechVO vo) throws Exception;
 
-	List<Text2SpeechVO> getText2SpeechList() throws Exception; 
+	List<Text2SpeechVO> getText2SpeechList() throws Exception;
+
+	int deleteText2Speech(int no) throws Exception; 
 
 }

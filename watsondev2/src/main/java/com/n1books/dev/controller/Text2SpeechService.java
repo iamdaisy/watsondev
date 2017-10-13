@@ -13,4 +13,6 @@ public interface Text2SpeechService {
 	public void insertText2Speech(Text2SpeechVO vo) throws Exception;
 
 	public List<Text2SpeechVO> getText2SpeechList() throws Exception;
+
+	public void deleteText2Speech(int no) throws Exception;
 }

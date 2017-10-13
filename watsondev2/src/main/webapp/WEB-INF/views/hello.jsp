@@ -30,6 +30,7 @@ ${voice.description}<br/>
 	<td>${vo.no}</td>
 	<td>${vo.statement}</td>
 	<td>${vo.lang}</td>
+	<td> <a href="delete/${vo.no}"> X </a> </td>
 </tr>
 </c:forEach>
 

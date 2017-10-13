@@ -33,9 +33,23 @@
 		<beans:property name="password" value="oracle" />
 	</beans:bean>
 	
-	<!-- JDBC -->
+	<!-- Spring JDBC -->
 	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
+	
+	<!-- ibatis -->
+	<beans:bean id="sqlMapClientFactory" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="configLocation" value="/WEB-INF/SqlMapConfig.xml" />
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<beans:property name="sqlMapClient" ref="sqlMapClientFactory" />
+	</beans:bean>
+	
+	
 	
 </beans:beans>

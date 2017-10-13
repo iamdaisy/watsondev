@@ -1,17 +1,41 @@
 package com.n1books.dev.controller;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository("springJDBC")
-public class Text2SpeechDAOImpl implements Text2SpeechDAO {
+@Repository("ibatis")
+public class Text2SpeechDAOibatis implements Text2SpeechDAO {
 	
+	@Autowired
+	private SqlMapClientTemplate sqlMapClientTemplate; //spring bean으로 주입됨
+
+	
+	@Override
+	public void insertText2Speech(Text2SpeechVO vo) {
+		sqlMapClientTemplate.insert("tts.insertText2Speech", vo);
+
+	}
+
+	@Override
+	public List<Text2SpeechVO> getText2SpeechList() throws Exception {
+		return sqlMapClientTemplate.queryForList("tts.getText2SpeechList"); //여러건
+	}
+
+	@Override
+	public int deleteText2Speech(int no) throws Exception {
+		return sqlMapClientTemplate.delete("tts.deleteText2Speech", no);
+	}
+	
+	
+
+	
+	
+	
+	
+	/* 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
@@ -45,11 +69,6 @@ public class Text2SpeechDAOImpl implements Text2SpeechDAO {
 				"select no, statement, lang from tbl_text2speech " + 
 				"order by no desc", rowMapper);
 	}
-
-	@Override
-	public int deleteText2Speech(int no) throws Exception {
-		return 0;
-	}
+	*/
 	
-
 }
