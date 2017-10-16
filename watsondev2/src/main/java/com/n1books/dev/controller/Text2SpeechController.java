@@ -7,16 +7,19 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ibm.watson.developer_cloud.text_to_speech.v1.TextToSpeech;
@@ -33,11 +36,22 @@ public class Text2SpeechController {
 		return new ModelAndView("hello", "msg", "Hello MVC");
 	}
 	
+	@RequestMapping(
+			value = "displayJSON2",
+			headers = "Accept=application/json;charset=UTF-8",
+			produces = {MediaType.APPLICATION_JSON_UTF8_VALUE}
+			)
+	@ResponseBody
+	public List<Text2SpeechVO> display_jason() throws Exception {
+		return service.getText2SpeechList();
+
+	}
+	
+	
 	@RequestMapping("display")
 	public ModelAndView display_voice() throws Exception {
 		TextToSpeech service2 = new TextToSpeech(
 				"61dffcc2-3bbf-4f5a-b666-60e07a15ace9", "7fDFgUodXmem");
-		
 		List<Text2SpeechVO> list = service.getText2SpeechList();
 
 		List<Voice> voices = service2.getVoices().execute();
@@ -55,7 +69,10 @@ public class Text2SpeechController {
 	}
 	
 	@GetMapping("speaker")
-	public void speaker(Text2SpeechVO vo, HttpServletResponse response) throws Exception {
+	public void speaker(Text2SpeechVO vo, 
+			HttpSession session, 
+			HttpServletResponse response) throws Exception {
+				
 		logger.info("vo : " + vo);
 		
 		response.setContentType("application/octet-stream");
@@ -72,7 +89,7 @@ public class Text2SpeechController {
 	}
 	
 	
-	@RequestMapping("delete/{no}") // RESTful
+	@RequestMapping("delete/{no}") // RESTful방식
 	public ModelAndView delete(@PathVariable int no) {
 		logger.info("no : " + no);
 		ModelAndView mav = new ModelAndView("result");

@@ -17,7 +17,9 @@ public class Text2SpeechServiceImpl
 	implements Text2SpeechService {
 	
 	@Autowired
-	@Qualifier("ibatis")
+	//@Qualifier("ibatis")
+	@Qualifier("text2SpeechDAOMybatis")
+	
 	private Text2SpeechDAO text2SpeechDAO;
 
 	public Text2SpeechServiceImpl() {
