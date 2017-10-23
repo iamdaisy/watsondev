@@ -24,9 +24,9 @@ public class ClassifierController {
 	public String classify(@RequestBody String content) throws UnsupportedEncodingException {
 		System.out.println("classifier start");
 		System.out.println(content);
-		String user = "b97bd3c7-2a12-4023-823e-8cbca12e6b5d";
-		String pwd = "2Hm0irR8ueK4";
-		String classify_id = "ebd2f7x230-nlc-24165";
+		String user = "--";
+		String pwd = "--";
+		String classify_id = "--";
 
 		NaturalLanguageClassifier service = new NaturalLanguageClassifier();
 		service.setUsernameAndPassword(user, pwd);

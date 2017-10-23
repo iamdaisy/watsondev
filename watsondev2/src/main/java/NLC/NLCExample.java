@@ -21,7 +21,7 @@ public class NLCExample {
 		
 		for(String str:list) {
 			NaturalLanguageClassifier service = new NaturalLanguageClassifier();
-			service.setUsernameAndPassword("3d10ffb6-84d6-4654-84ad-f0b6e98b08b3", "jqQ27kQGuyUB");
+			service.setUsernameAndPassword("--", "--");
 			Classification classification = service.classify("ebd15ex229-nlc-24230",str).execute();
 			System.out.println(classification);
 		}

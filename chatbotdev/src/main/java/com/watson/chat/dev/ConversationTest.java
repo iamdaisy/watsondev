@@ -16,7 +16,7 @@ public class ConversationTest {
 	public void testConversation() {
 		Scanner sc = new Scanner(System.in);
 		Conversation service = new Conversation(Conversation.VERSION_DATE_2017_05_26);
-		service.setUsernameAndPassword("7689fcc4-b013-4b84-8ba6-857df80f0e03", "ZdMoEDTBfPN6");
+		service.setUsernameAndPassword("--", "--");
 		
 		MessageResponse response = null;
 		Context context = null;
