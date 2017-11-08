@@ -21,11 +21,11 @@
 
 <p class="triangle-right">This only needs one HTML element.</p>
 
-<p class="triangle-right top">For example, <code>&lt;p&gt;[text]&lt;/p&gt;</code>.</p>
+<p class="triangle-right top">triangle-right top <code>&lt;p&gt;[text]&lt;/p&gt;</code>.</p>
 
-<p class="triangle-right left">But it could be any element you want.</p>
+<p class="triangle-right left">triangle-right left</p>
 
-<p class="triangle-right right">The entire appearance is created only with CSS.</p>
+<p class="triangle-right right">triangle-right right</p>
 
 <p class="triangle-obtuse">This only needs one HTML element.</p>
 
@@ -33,13 +33,13 @@
 
 <p class="triangle-border">This only needs one HTML element.</p>
 
-<p class="triangle-border top">For example, <code>&lt;p&gt;[text]&lt;/p&gt;</code>.</p>
+<p class="triangle-border top">triangle-border top <code>&lt;p&gt;[text]&lt;/p&gt;</code>.</p>
 
-<p class="triangle-border center">But it could be any element you want.</p>
+<p class="triangle-border center">triangle-border center</p>
 
-<p class="triangle-border left">But it could be any element you want.</p>
+<p class="triangle-border left">triangle-border left</p>
 
-<p class="triangle-border right">The entire appearance is created only with CSS.</p>
+<p class="triangle-border right">triangle-border right</p>
 
 <blockquote class="example-right">
     <p>Design is directed toward human beings. To design is to solve human problems by identifying them and executing the best solution.</p>
@@ -50,14 +50,14 @@
     <p>It’s not what you look at that matters, it’s what you see.</p>
 </blockquote>
 
-<div class="example-number">57</div>
+<div class="example-number">52</div>
 
 <div class="pinched">
     <p><strong>It doesn’t matter what the first child element of this div is</strong>...but it does need a child element.</p>
 </div>
 
 <blockquote class="oval-speech">
-    <p>This is a blockquote that is styled to look like a speech bubble</p>
+    <p>oval-speech</p>
 </blockquote>
 
 <blockquote class="oval-thought">

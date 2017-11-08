@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/bubbles.css" />">
 <script src="<c:url value="/resources/js/jquery-3.2.1.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<title>Insert title here</title>
+
+<title>DENTBOT</title>
 <link rel="shortcut icon" href="/favicon.ico" />
 <script type="text/javascript">
 $(document).ready(function(){
@@ -30,27 +31,34 @@ $(document).ready(function(){
 function conversation() {
 	var _isay = $('#txt_isay').val();
 
-	var isay = '<p class="triangle-border right">' + _isay + '</p>';
+	var isay = '<p class="triangle-right right">' + _isay + '</p>';
 	$('#said').append(isay);
 	$('#txt_isay').val('');
 	ajax_process(_isay);
 }
 
 function ajax_process(_isay){
-	$.ajax({
-		type : 'POST',
-		url  : 'watsonsay',
-		data : 'isay=' + _isay,
-		async: false,
-		success : function(data) {
-			console.log(data);
-			var watsonsay =
-				'<p class="triangle-border left">' + data.output.text + '</p>';
-			$('#said').append(watsonsay);	
-			$('html, body').animate({scrollTop: $(document).height()}, 500);
-		}
-	});
-}
+	   $.ajax({
+	      type : 'POST',
+	      url  : 'watsonsay',
+	      data : 'isay=' + encodeURIComponent(_isay),
+	      async: false,
+	      success : function(data) {
+	         console.log(data);
+	         var watsonsay =
+	            '<p class="triangle-right left">' + data.output.text; 
+	            
+	         if (data.context.image!=='') {
+	                 watsonsay += '<img src="resources/img/'+data.context.image+'.PNG" width="500" />';
+	         }   
+	         
+	         watsonsay += '</p>';
+	         $('#said').append(watsonsay);   
+	         $('html, body').animate({scrollTop: $(document).height()}, 500);
+	      }
+	   });
+	}
+
 </script>
 </head>
 <body>

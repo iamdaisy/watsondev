@@ -24,7 +24,7 @@ public class WatsonSay {
 		
 		
 		Conversation service = new Conversation(Conversation.VERSION_DATE_2017_05_26);
-		service.setUsernameAndPassword("--", "--");
+	    service.setUsernameAndPassword("7689fcc4-b013-4b84-8ba6-857df80f0e03", "ZdMoEDTBfPN6");
 		
 		MessageResponse response = null;
 		Context context = (Context) session.getAttribute("context");
@@ -34,7 +34,7 @@ public class WatsonSay {
 		
 		
 		options = new MessageOptions.Builder()
-			    .workspaceId("3ef06732-3e8f-4864-9496-0dab21ae982b")
+			    .workspaceId("43e41bd2-68a1-4d42-a4ca-d171ee62b40e")
 			    .input(new InputData.Builder(msg).build())
 			    .context(context)  //기존정보에 대한 대화내용과 같은 흐름을 만듬
 			    .build();		
